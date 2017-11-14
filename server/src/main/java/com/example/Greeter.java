@@ -11,8 +11,10 @@ public class Greeter {
   public Greeter() {
 
   }
-   /*8 to greet somone */
-  final String greet(final String someone) {
+   /** 
+    * To greet somone 
+    */
+  public final String greet(final String someone) {
     return String.format("Hello, %s!", someone);
   }
 }
