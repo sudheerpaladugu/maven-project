@@ -31,11 +31,30 @@
 
   <build>
     <plugins>
+        <plugin>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <version>1.5.0</version>
+            <configuration>
+                <container>
+                    <containerId>tomcat8x</containerId>
+                    <type>remote</type>
+                </container>
+                <configuration>
+                    <type>runtime</type>
+                    <properties>
+                        <cargo.remote.username>admin</cargo.remote.username>
+                        <cargo.remote.password>password</cargo.remote.password>
+                        <cargo.tomcat.manager.url>http://localhost:8090/manager/text</cargo.tomcat.manager.url>
+                    </properties>
+                </configuration>
+            </configuration>
+       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
 
@@ -45,6 +64,18 @@
           <autoVersionSubmodules>true</autoVersionSubmodules>
         </configuration>
       </plugin>
+
+
+    <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+            <url>http://localhost:8090/manager/text</url>
+            <server>TomcatServer</server>
+            <path>/myapp</path>
+        </configuration>
+    </plugin>
 
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
@@ -203,6 +234,11 @@
         <version>1.8.5</version>
         <scope>test</scope>
       </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat8-maven-plugin</artifactId>
+        <version>3.0-r1756463</version>
+    </dependency>
     </dependencies>
   </dependencyManagement>
 
