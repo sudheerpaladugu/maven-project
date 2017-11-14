@@ -11,7 +11,7 @@ public class Greeter {
   public Greeter() {
 
   }
-   /** 
+   /**
     * To greet somone.
     * @param someone
     * @return String
